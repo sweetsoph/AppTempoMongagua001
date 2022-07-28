@@ -38,8 +38,11 @@ const styles = StyleSheet.create({
   botao: {
     display: "flex",
     alignItems: "center",
+    justifyContent: "center",
     backgroundColor: "#6800C9",
     width: 80,
+    height: 30,
+    borderRadius: 20,
   },
   textoBotao: {
     color: "#fff",
