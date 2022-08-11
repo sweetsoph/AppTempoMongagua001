@@ -1,8 +1,13 @@
-import React from 'react';
+import React, {useState, UseState} from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import Tempo from './Components/Tempo';
+import Api from './Components/Api';
 
 export default function App() {
+  const [dados, setDados] = useState("");
+  async function CarregaDados(){
+    const response = await Api.get('weather?array_limit=1&fields=only_results,temp,city_name,description,forecast,max,min,date&key=c61a605c&city_name=mongagua,SP');
+  }
   return (
     <View style={styles.container}>
       <View>
