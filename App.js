@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import Tempo from './Components/Tempo';
 
 export default function App() {
   return (
@@ -19,6 +20,9 @@ export default function App() {
         <TouchableOpacity style={styles.botao}>
           <Text style={styles.textoBotao}>Buscar</Text>
         </TouchableOpacity>
+      </View>
+      <View style={styles.bloco}>
+        <Tempo />
       </View>
     </View>  
   );
