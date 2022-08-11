@@ -5,8 +5,10 @@ import Api from './Components/Api';
 
 export default function App() {
   const [dados, setDados] = useState("");
-  async function CarregaDados(){
+  async function carregaDados(){
     const response = await Api.get('weather?array_limit=1&fields=only_results,temp,city_name,description,forecast,max,min,date&key=c61a605c&city_name=mongagua,SP');
+    //pegando os dados da array forecast na posição 0, os dados de hoje
+    setDados(response.data.forecast[0]);
   }
   return (
     <View style={styles.container}>
@@ -22,12 +24,14 @@ export default function App() {
         />
       </View>
       <View style={styles.bloco}>
-        <TouchableOpacity style={styles.botao}>
+        <TouchableOpacity
+        style={styles.botao}
+        onPress={carregaDados}>
           <Text style={styles.textoBotao}>Buscar</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.bloco}>
-        <Tempo />
+        <Tempo data={"dados"}/>
       </View>
     </View>  
   );
